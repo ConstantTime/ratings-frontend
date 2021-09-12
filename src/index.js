@@ -1,12 +1,12 @@
 import React from "react";
 import ReactDOM from "react-dom";
-import Product from "./components/Product";
+import Products from "./components/Products";
 import "./index.css";
 import reportWebVitals from "./reportWebVitals";
 
 ReactDOM.render(
   <React.StrictMode>
-    <Product />
+    <Products />
   </React.StrictMode>,
   document.getElementById("root")
 );
