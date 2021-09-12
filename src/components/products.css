@@ -1,0 +1,11 @@
+.products-list-heading {
+  left: 50%;
+  margin-top: 20px;
+}
+
+.products-list {
+  display: flex;
+  position: fixed;
+  flex-direction: column;
+  left: 50%;
+}
