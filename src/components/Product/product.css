@@ -1,0 +1,42 @@
+.product-heading {
+  justify-content: center;
+  margin-top: 20px;
+}
+
+.product-page {
+  display: flex;
+  flex-direction: column;
+  width: 50%;
+  margin: 0 auto;
+}
+
+.average-rating {
+  align-items: center;
+  justify-content: center;
+  display: flex;
+}
+
+.rating-text {
+  margin-right: 10px;
+}
+
+.add-rating {
+  margin-top: 10px;
+  align-items: center;
+  justify-content: space-between;
+  display: flex;
+}
+
+.product-rating {
+  display: flex;
+}
+
+.separator {
+  margin-top: 40px;
+  margin-bottom: 40px;
+  border-bottom: 2px solid;
+}
+
+.top3-reviews .MuiTypography-root {
+  margin-bottom: 10px;
+}

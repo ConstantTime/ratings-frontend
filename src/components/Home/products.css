@@ -5,7 +5,6 @@
 
 .products-list {
   display: flex;
-  position: fixed;
   flex-direction: column;
   left: 50%;
 }

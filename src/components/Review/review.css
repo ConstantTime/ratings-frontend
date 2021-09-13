@@ -1,0 +1,13 @@
+.review {
+  display: flex;
+  align-items: center;
+}
+
+.rating {
+  margin-left: 10px;
+  margin-right: 5px;
+}
+
+.review-text {
+  color: gray;
+}

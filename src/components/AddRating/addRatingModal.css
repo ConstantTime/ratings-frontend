@@ -1,0 +1,16 @@
+.add-rating-modal {
+  display: flex;
+  flex-direction: column;
+  width: 40%;
+  margin: 0 auto;
+  margin-top: 200px;
+  background-color: white;
+  align-items: flex-start;
+  padding: 30px;
+  min-height: 300px;
+  justify-content: space-around;
+}
+
+.add-rating-modal .MuiButtonBase-root {
+  margin-top: 30px;
+}
