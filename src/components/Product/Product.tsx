@@ -17,6 +17,9 @@ const Product: React.FC = () => {
   const [isModelOpen, showModal] = useState(false);
 
   const averageRating = () => {
+    if (ratings.length === 0) {
+      return 0.0;
+    }
     let avgRating = 0.0;
     ratings?.forEach((rating) => {
       avgRating = avgRating + rating.rating;
@@ -27,6 +30,14 @@ const Product: React.FC = () => {
     return +avgRating.toFixed(2);
   };
 
+  const handleClick = () => {
+    showModal(true);
+  };
+
+  const handleClose = () => {
+    showModal(false);
+  };
+
   useEffect(() => {
     fetchProductDetails(id, setProduct);
     fetchTop3Ratings(id, setRatings);
@@ -35,14 +46,6 @@ const Product: React.FC = () => {
   if (!product) {
     return <div>Error in loading product!!!</div>;
   }
-
-  const handleClick = () => {
-    showModal(true);
-  };
-
-  const handleClose = () => {
-    showModal(false);
-  };
 
   return (
     <div className="product-page">
@@ -57,7 +60,7 @@ const Product: React.FC = () => {
             </Typography>
           </div>
           <Rating
-            name="half-rating"
+            name="rating-stars"
             value={averageRating()}
             precision={0.5}
             readOnly
@@ -76,8 +79,8 @@ const Product: React.FC = () => {
           Reviews
         </Typography>
 
-        {ratings.map((rating) => (
-          <Review rating={rating} />
+        {ratings.map((rating, index) => (
+          <Review key={`${index}`} rating={rating} />
         ))}
       </div>
       {isModelOpen && (

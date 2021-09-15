@@ -7,7 +7,7 @@ const Review: React.FC<IReview> = ({ rating }) => {
   return (
     <div className="review">
       <Rating
-        name="half-rating"
+        name="rating-stars"
         value={rating.rating}
         precision={0.5}
         readOnly
