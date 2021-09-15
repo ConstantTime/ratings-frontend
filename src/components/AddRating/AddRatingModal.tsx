@@ -2,12 +2,11 @@ import TextField from "@material-ui/core/TextField";
 import Typography from "@material-ui/core/Typography";
 import StarBorderIcon from "@material-ui/icons/StarBorder";
 import Rating from "@material-ui/lab/Rating";
-import axios from "axios";
 import React, { useState } from "react";
 import { useParams } from "react-router-dom";
-import { ApiEndpoints, SERVER_URL } from "../../constants/Constants";
 import GumroadButton from "../Button/GumroadButton";
 import "./addRatingModal.css";
+import { addRatingAndReview } from "./api";
 import { IAddRatingModal } from "./types";
 
 const DEFAULT_VALUE = 3;
@@ -16,22 +15,7 @@ const AddRatingModal: React.FC<IAddRatingModal> = ({ closeModal }) => {
   const [rating, setRating] = useState(DEFAULT_VALUE);
   const [review, setReview] = useState("");
   const handleClick = () => {
-    axios
-      .request({
-        url: SERVER_URL + ApiEndpoints.ADD_RATING_AND_REVIEW(id.id as String),
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        data: JSON.stringify({
-          rating: rating,
-          review: review,
-        }),
-      })
-      .catch((response) => {
-        console.log("Error while adding rating:", response);
-      });
-
+    addRatingAndReview(id, rating, review);
     closeModal();
   };
 

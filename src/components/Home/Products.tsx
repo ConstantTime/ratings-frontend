@@ -1,25 +1,15 @@
 import Typography from "@material-ui/core/Typography";
-import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { IProduct } from "../../api/responses/types";
-import { ApiEndpoints, SERVER_URL } from "../../constants/Constants";
+import { fetchProducts } from "./api";
 import "./products.css";
 
 const Products: React.FC = () => {
   const [products, setProducts] = useState<IProduct[]>([]);
 
   useEffect(() => {
-    axios
-      .get<IProduct[]>(SERVER_URL + ApiEndpoints.FETCH_PRODUCTS, {
-        method: "GET",
-      })
-      .then((response) => {
-        setProducts(response.data);
-      })
-      .catch((response) => {
-        console.log("Error:", response);
-      });
+    fetchProducts(setProducts);
   }, []);
 
   return (

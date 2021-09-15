@@ -1,15 +1,13 @@
 import Modal from "@material-ui/core/Modal";
 import Typography from "@material-ui/core/Typography";
 import Rating from "@material-ui/lab/Rating";
-import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { IProduct, IRating } from "../../api/responses/types";
-import { ApiEndpoints, SERVER_URL } from "../../constants/Constants";
 import AddRatingModal from "../AddRating/AddRatingModal";
 import GumroadButton from "../Button/GumroadButton";
 import Review from "../Review/Review";
-import { fetchAndSetProductDetails } from "./api";
+import { fetchProductDetails, fetchTop3Ratings } from "./api";
 import "./product.css";
 
 const Product: React.FC = () => {
@@ -30,21 +28,8 @@ const Product: React.FC = () => {
   };
 
   useEffect(() => {
-    fetchAndSetProductDetails(id, setProduct);
-
-    axios
-      .get<IRating[]>(
-        SERVER_URL + ApiEndpoints.FETCH_TOP3_RATINGS(id.id as String),
-        {
-          method: "GET",
-        }
-      )
-      .then((response) => {
-        setRatings(response.data);
-      })
-      .catch((response) => {
-        console.log("Error while fetching top 3 ratings:", response);
-      });
+    fetchProductDetails(id, setProduct);
+    fetchTop3Ratings(id, setRatings);
   }, []);
 
   if (!product) {
