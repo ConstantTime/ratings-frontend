@@ -9,6 +9,7 @@ import { ApiEndpoints, SERVER_URL } from "../../constants/Constants";
 import AddRatingModal from "../AddRating/AddRatingModal";
 import GumroadButton from "../Button/GumroadButton";
 import Review from "../Review/Review";
+import { fetchAndSetProductDetails } from "./api";
 import "./product.css";
 
 const Product: React.FC = () => {
@@ -25,23 +26,11 @@ const Product: React.FC = () => {
 
     avgRating /= ratings?.length;
 
-    return avgRating;
+    return +avgRating.toFixed(2);
   };
 
   useEffect(() => {
-    axios
-      .get<IProduct>(
-        SERVER_URL + ApiEndpoints.FETCH_PRODUCT_DETAILS(id.id as String),
-        {
-          method: "GET",
-        }
-      )
-      .then((response) => {
-        setProduct(response.data);
-      })
-      .catch((response) => {
-        console.log("Error while fetching product details:", response);
-      });
+    fetchAndSetProductDetails(id, setProduct);
 
     axios
       .get<IRating[]>(
@@ -113,7 +102,7 @@ const Product: React.FC = () => {
           aria-labelledby="simple-modal-title"
           aria-describedby="simple-modal-description"
         >
-          <AddRatingModal />
+          <AddRatingModal closeModal={handleClose} />
         </Modal>
       )}
     </div>

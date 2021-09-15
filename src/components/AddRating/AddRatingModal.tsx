@@ -8,14 +8,14 @@ import { useParams } from "react-router-dom";
 import { ApiEndpoints, SERVER_URL } from "../../constants/Constants";
 import GumroadButton from "../Button/GumroadButton";
 import "./addRatingModal.css";
+import { IAddRatingModal } from "./types";
 
 const DEFAULT_VALUE = 3;
-const AddRatingModal: React.FC = () => {
+const AddRatingModal: React.FC<IAddRatingModal> = ({ closeModal }) => {
   const id = useParams<any>();
   const [rating, setRating] = useState(DEFAULT_VALUE);
   const [review, setReview] = useState("");
   const handleClick = () => {
-    console.log(rating, review);
     axios
       .request({
         url: SERVER_URL + ApiEndpoints.ADD_RATING_AND_REVIEW(id.id as String),
@@ -31,6 +31,8 @@ const AddRatingModal: React.FC = () => {
       .catch((response) => {
         console.log("Error while adding rating:", response);
       });
+
+    closeModal();
   };
 
   const handleChangeInReview = (

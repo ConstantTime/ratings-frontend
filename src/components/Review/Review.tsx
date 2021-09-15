@@ -1,7 +1,7 @@
 import Rating from "@material-ui/lab/Rating";
 import React from "react";
 import "./review.css";
-import { IReview } from "./types.ts";
+import { IReview } from "./types";
 
 const Review: React.FC<IReview> = ({ rating }) => {
   return (
