@@ -53,19 +53,23 @@ const Product: React.FC = () => {
         <div className="product-heading">{product.name}</div>
       </Typography>
       <div className="add-rating">
-        <div className="average-rating">
-          <div className="rating-text">
-            <Typography variant="h5" align="center">
-              {averageRating()}
-            </Typography>
+        {ratings.length > 0 ? (
+          <div className="average-rating">
+            <div className="rating-text">
+              <Typography variant="h5" align="center">
+                {averageRating()}
+              </Typography>
+            </div>
+            <Rating
+              name="rating-stars"
+              value={averageRating()}
+              precision={0.5}
+              readOnly
+            />
           </div>
-          <Rating
-            name="rating-stars"
-            value={averageRating()}
-            precision={0.5}
-            readOnly
-          />
-        </div>
+        ) : (
+          <div>Not rated yet 😔</div>
+        )}
 
         <div className="add-rating-button">
           <GumroadButton onClick={handleClick}>Add Review</GumroadButton>
