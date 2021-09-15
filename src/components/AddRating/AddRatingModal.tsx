@@ -4,15 +4,15 @@ import StarBorderIcon from "@material-ui/icons/StarBorder";
 import Rating from "@material-ui/lab/Rating";
 import React, { useState } from "react";
 import { useParams } from "react-router-dom";
+import { DEFAULT_RATING_VALUE } from "../../constants/Constants";
 import GumroadButton from "../Button/GumroadButton";
 import "./addRatingModal.css";
 import { addRatingAndReview } from "./api";
 import { IAddRatingModal } from "./types";
 
-const DEFAULT_VALUE = 3;
 const AddRatingModal: React.FC<IAddRatingModal> = ({ closeModal }) => {
   const id = useParams<any>();
-  const [rating, setRating] = useState(DEFAULT_VALUE);
+  const [rating, setRating] = useState(DEFAULT_RATING_VALUE);
   const [review, setReview] = useState("");
   const handleClick = () => {
     addRatingAndReview(id, rating, review);
@@ -37,7 +37,7 @@ const AddRatingModal: React.FC<IAddRatingModal> = ({ closeModal }) => {
 
       <Rating
         name="product-rating"
-        defaultValue={DEFAULT_VALUE}
+        defaultValue={DEFAULT_RATING_VALUE}
         precision={0.5}
         onChange={(_, newValue) => {
           newValue != null && setRating(newValue);
