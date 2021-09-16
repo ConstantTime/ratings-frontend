@@ -4,6 +4,7 @@ import Rating from "@material-ui/lab/Rating";
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { IProduct, IRating } from "../../api/responses/types";
+import { useInterval } from "../../hooks/useInterval";
 import AddRatingModal from "../AddRating/AddRatingModal";
 import GumroadButton from "../Button/GumroadButton";
 import Review from "../Review/Review";
@@ -27,8 +28,11 @@ const Product: React.FC = () => {
 
   useEffect(() => {
     fetchProductDetails(id, setProduct);
-    fetchTop3Ratings(id, setRatings);
   }, []);
+
+  useInterval(() => {
+    fetchTop3Ratings(id, setRatings);
+  }, 1000 * 2);
 
   if (!product) {
     return <div>Error in loading product!!!</div>;
