@@ -1,0 +1,20 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Products should render the component 1`] = `
+<div>
+  <WithStyles(ForwardRef(Typography))
+    align="center"
+    component="h2"
+    variant="h3"
+  >
+    <div
+      className="products-list-heading"
+    >
+      Gumroad Products
+    </div>
+  </WithStyles(ForwardRef(Typography))>
+  <div
+    className="products-list"
+  />
+</div>
+`;

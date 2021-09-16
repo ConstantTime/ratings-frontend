@@ -1,0 +1,17 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Gumroad button should render the component 1`] = `
+<WithStyles(ForwardRef(Button))
+  onClick={[MockFunction]}
+  size="medium"
+  style={
+    Object {
+      "backgroundColor": "#FFFFFF",
+      "color": "#000000",
+    }
+  }
+  variant="contained"
+>
+  test
+</WithStyles(ForwardRef(Button))>
+`;
