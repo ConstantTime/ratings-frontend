@@ -1,0 +1,50 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Add rating modal should render the component 1`] = `
+<div
+  className="add-rating-modal"
+>
+  <WithStyles(ForwardRef(Typography))
+    align="center"
+    component="h2"
+    variant="h4"
+  >
+    What's your rating?
+  </WithStyles(ForwardRef(Typography))>
+  <WithStyles(ForwardRef(Typography))
+    align="center"
+    component="h2"
+    variant="h6"
+  >
+    Rating
+  </WithStyles(ForwardRef(Typography))>
+  <WithStyles(ForwardRef(Rating))
+    defaultValue={3}
+    emptyIcon={
+      <Memo
+        fontSize="inherit"
+      />
+    }
+    name="product-rating"
+    onChange={[Function]}
+    precision={0.5}
+  />
+  <WithStyles(ForwardRef(Typography))
+    align="center"
+    component="h2"
+    variant="h6"
+  >
+    Review
+  </WithStyles(ForwardRef(Typography))>
+  <WithStyles(ForwardRef(TextField))
+    id="standard-basic"
+    label="Start typing"
+    onChange={[Function]}
+  />
+  <GumroadButton
+    onClick={[Function]}
+  >
+    Submit Review
+  </GumroadButton>
+</div>
+`;

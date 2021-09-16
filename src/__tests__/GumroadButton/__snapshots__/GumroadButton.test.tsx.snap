@@ -11,7 +11,5 @@ exports[`Gumroad button should render the component 1`] = `
     }
   }
   variant="contained"
->
-  test
-</WithStyles(ForwardRef(Button))>
+/>
 `;
