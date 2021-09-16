@@ -9,8 +9,3 @@ export interface IRating {
   rating: number;
   review: String;
 }
-
-export interface IAddRating {
-  rating: number;
-  review: String;
-}
