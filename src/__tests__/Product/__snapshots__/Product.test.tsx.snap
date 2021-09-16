@@ -1,0 +1,13 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Product should render the component 1`] = `
+<div>
+  Error in loading product!!!
+</div>
+`;
+
+exports[`Product should render the erroneous state of component 1`] = `
+<div>
+  Error in loading product!!!
+</div>
+`;

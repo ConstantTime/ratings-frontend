@@ -2,8 +2,9 @@ import { shallow } from "enzyme";
 import AddRatingModal from "../../components/AddRating/AddRatingModal";
 import * as apiUtils from "../../components/AddRating/api";
 import GumroadButton from "../../components/Button/GumroadButton";
+
 jest.mock("react-router-dom", () => ({
-  ...jest.requireActual("react-router-dom"), // use actual for all non-hook parts
+  ...jest.requireActual("react-router-dom"),
   useParams: () => ({
     id: {
       id: "test",
