@@ -9,26 +9,13 @@ import GumroadButton from "../Button/GumroadButton";
 import Review from "../Review/Review";
 import { fetchProductDetails, fetchTop3Ratings } from "./api";
 import "./product.css";
+import { averageRating } from "./utils";
 
 const Product: React.FC = () => {
   const id = useParams<any>();
   const [product, setProduct] = useState<IProduct>();
   const [ratings, setRatings] = useState<IRating[]>([]);
   const [isModelOpen, showModal] = useState(false);
-
-  const averageRating = () => {
-    if (ratings.length === 0) {
-      return 0.0;
-    }
-    let avgRating = 0.0;
-    ratings?.forEach((rating) => {
-      avgRating = avgRating + rating.rating;
-    });
-
-    avgRating /= ratings?.length;
-
-    return +avgRating.toFixed(2);
-  };
 
   const handleClick = () => {
     showModal(true);
@@ -57,12 +44,12 @@ const Product: React.FC = () => {
           <div className="average-rating">
             <div className="rating-text">
               <Typography variant="h5" align="center">
-                {averageRating()}
+                {averageRating(ratings)}
               </Typography>
             </div>
             <Rating
               name="rating-stars"
-              value={averageRating()}
+              value={averageRating(ratings)}
               precision={0.5}
               readOnly
             />
