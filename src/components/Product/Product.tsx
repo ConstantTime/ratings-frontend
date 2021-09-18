@@ -24,15 +24,17 @@ const Product: React.FC = () => {
 
   const handleClose = () => {
     showModal(false);
+    fetchTop3Ratings(id, setRatings);
   };
 
   useEffect(() => {
     fetchProductDetails(id, setProduct);
+    fetchTop3Ratings(id, setRatings);
   }, []);
 
   useInterval(() => {
     fetchTop3Ratings(id, setRatings);
-  }, 1000 * 2);
+  }, 1000 * 1);
 
   if (!product) {
     return <div>Error in loading product!!!</div>;
